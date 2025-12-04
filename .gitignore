@@ -1,0 +1,37 @@
+﻿## Ignore Visual Studio / Rider / VS Code
+/bin/
+/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+.idea/
+*.swp
+*.swn
+*.swo
+
+# Avalonia
+*.axaml.cs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+*.nupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# EF Migrations
+**/Migrations/*Designer.cs
+**/Migrations/*Snapshot.cs
