@@ -92,6 +92,8 @@ CREATE TABLE IF NOT EXISTS public."Student"
     "RegistrationNumber" character varying(20) COLLATE pg_catalog."default",
     "FullName" character varying(50) COLLATE pg_catalog."default",
     "SpecialtyId" integer,
+    "Login" character(50) COLLATE pg_catalog."default",
+    "PasswordHash" character(50) COLLATE pg_catalog."default",
     CONSTRAINT "Student_pkey" PRIMARY KEY ("StudentId")
 );
 

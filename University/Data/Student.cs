@@ -13,6 +13,10 @@ public partial class Student
 
     public int? SpecialtyId { get; set; }
 
+    public string? Login { get; set; }
+
+    public string? PasswordHash { get; set; }
+
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 
     public virtual Specialty? Specialty { get; set; }

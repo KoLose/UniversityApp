@@ -198,6 +198,12 @@ public partial class AppDbContext : DbContext
             entity.ToTable("Student");
 
             entity.Property(e => e.FullName).HasMaxLength(50);
+            entity.Property(e => e.Login)
+                .HasMaxLength(50)
+                .IsFixedLength();
+            entity.Property(e => e.PasswordHash)
+                .HasMaxLength(50)
+                .IsFixedLength();
             entity.Property(e => e.RegistrationNumber).HasMaxLength(20);
 
             entity.HasOne(d => d.Specialty).WithMany(p => p.Students)
