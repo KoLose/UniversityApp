@@ -7,5 +7,44 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Grid ColumnDefinitions="*" RowDefinitions="Auto, *, Auto">
+        <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Margin="0,20,0,0"
+            Text="UniversityApp"
+            VerticalAlignment="Center" />
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Spacing="15"
+            VerticalAlignment="Center"
+            Width="300">
+
+            <TextBox
+                FontSize="16"
+                Watermark="Логин"
+                x:Name="LoginBox" />
+
+            <TextBox
+                FontSize="16"
+                PasswordChar="•"
+                Watermark="Пароль"
+                x:Name="PasswordBox" />
+
+            <Button
+                Click="LoginButton_OnClick"
+                Content="Войти"
+                FontSize="16"
+                HorizontalAlignment="Stretch"
+                x:Name="LoginButton" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" />
+    </Grid>
+</Window>
