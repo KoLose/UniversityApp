@@ -1,0 +1,75 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="University.Pages.ViewExamsPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid RowDefinitions="Auto, *">
+        <!--  Панель фильтрации  -->
+        <StackPanel
+            Grid.Row="0"
+            Margin="10"
+            Orientation="Horizontal"
+            Spacing="12">
+            <TextBlock
+                FontSize="14"
+                Text="Поиск по дисциплине:"
+                VerticalAlignment="Center" />
+
+            <TextBox
+                Height="35"
+                TextChanged="SearchBox_TextChanged"
+                Width="200"
+                x:Name="SearchBox" />
+
+            <TextBlock
+                FontSize="14"
+                Margin="0,0,5,0"
+                Text="Аудитория:"
+                VerticalAlignment="Center" />
+
+            <ComboBox
+                Height="35"
+                PlaceholderText="Все аудитории"
+                SelectionChanged="AuditoriumFilter_SelectionChanged"
+                Width="150"
+                x:Name="AuditoriumFilter" />
+        </StackPanel>
+
+        <!--  Таблица экзаменов  -->
+        <DataGrid
+            Grid.Row="1"
+            IsReadOnly="True"
+            x:Name="ExamsDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding ExamDate}"
+                    Header="Дата"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Subject.Name}"
+                    Header="Дисциплина"
+                    Width="200" />
+                <DataGridTextColumn
+                    Binding="{Binding Student.FullName}"
+                    Header="Студент"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Teacher.FullName}"
+                    Header="Преподаватель"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Auditorium}"
+                    Header="Аудитория"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Grade}"
+                    Header="Оценка"
+                    Width="80" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

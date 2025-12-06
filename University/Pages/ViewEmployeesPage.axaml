@@ -1,0 +1,63 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="University.Pages.ViewEmployeesPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid RowDefinitions="Auto, *">
+        <StackPanel
+            Grid.Row="0"
+            Margin="10"
+            Orientation="Horizontal"
+            Spacing="12">
+            <TextBlock
+                FontSize="14"
+                Text="Поиск по ФИО сотрудника:"
+                VerticalAlignment="Center" />
+            <TextBox
+                Height="35"
+                TextChanged="SearchBox_TextChanged"
+                Width="300"
+                x:Name="SearchBox" />
+        </StackPanel>
+
+        <DataGrid
+            Grid.Row="1"
+            IsReadOnly="True"
+            x:Name="EmployeesDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding EmployeeId}"
+                    Header="Таб. №"
+                    Width="80" />
+                <DataGridTextColumn
+                    Binding="{Binding FullName}"
+                    Header="ФИО"
+                    Width="200" />
+                <DataGridTextColumn
+                    Binding="{Binding Position}"
+                    Header="Должность"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Salary}"
+                    Header="Зарплата"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Chief.FullName}"
+                    Header="Руководитель"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Dept.Name}"
+                    Header="Кафедра"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Role.Name}"
+                    Header="Роль"
+                    Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

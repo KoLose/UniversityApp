@@ -1,0 +1,68 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="University.Pages.ViewDisciplinesPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid RowDefinitions="Auto, *">
+        <!--  Панель фильтрации  -->
+        <StackPanel
+            Grid.Row="0"
+            Margin="10"
+            Orientation="Horizontal"
+            Spacing="12">
+            <TextBlock
+                FontSize="14"
+                Text="Поиск по названию дисциплины:"
+                VerticalAlignment="Center" />
+            <TextBox
+                Height="35"
+                TextChanged="SearchBox_TextChanged"
+                Width="250"
+                x:Name="SearchBox" />
+
+            <ComboBox
+                Height="35"
+                PlaceholderText="Фильтр по кафедре"
+                SelectionChanged="DepartmentFilter_SelectionChanged"
+                Width="250"
+                x:Name="DepartmentFilter" />
+        </StackPanel>
+
+        <!--  Таблица  -->
+        <DataGrid
+            Grid.Row="1"
+            IsReadOnly="True"
+            x:Name="DisciplinesDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding SubjectId}"
+                    Header="Код"
+                    Width="80" />
+                <DataGridTextColumn
+                    Binding="{Binding Code}"
+                    Header="Шифр"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Name}"
+                    Header="Название"
+                    Width="200" />
+                <DataGridTextColumn
+                    Binding="{Binding Hours}"
+                    Header="Часы"
+                    Width="80" />
+                <DataGridTextColumn
+                    Binding="{Binding ExecutorDept.Name}"
+                    Header="Кафедра"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding ExecutorDept.Code}"
+                    Header="Код кафедры"
+                    Width="120" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
