@@ -1,0 +1,100 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="University.Pages.ViewExamsTeacherPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *">
+        <!--  Заголовок  -->
+        <TextBlock
+            FontSize="20"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Margin="0,10,0,10"
+            Text="Список экзаменов" />
+
+        <!--  Поиск  -->
+        <StackPanel
+            Grid.Row="1"
+            Margin="10,0,10,10"
+            Orientation="Horizontal">
+            <TextBlock Margin="0,0,5,0" VerticalAlignment="Center">Поиск по студенту:</TextBlock>
+            <TextBox
+                Height="30"
+                TextChanged="SearchBox_TextChanged"
+                Width="250"
+                x:Name="SearchBox" />
+        </StackPanel>
+
+        <!--  Кнопки: Добавить и Сохранить  -->
+        <StackPanel
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,10"
+            Orientation="Horizontal"
+            Spacing="15">
+            <Button
+                Click="AddExamButton_Click"
+                Content="Добавить экзамен"
+                Height="30"
+                Width="150" />
+            <Button
+                Click="SaveButton_Click"
+                Content="Сохранить"
+                Height="30"
+                Width="100" />
+        </StackPanel>
+
+        <!--  Таблица  -->
+        <DataGrid
+            DoubleTapped="ExamsDataGrid_DoubleTapped"
+            Grid.Row="3"
+            IsReadOnly="False"
+            x:Name="ExamsDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding ExamDate}"
+                    Header="Дата"
+                    IsReadOnly="True"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Subject.Name}"
+                    Header="Дисциплина"
+                    IsReadOnly="True"
+                    Width="180" />
+                <DataGridTextColumn
+                    Binding="{Binding Student.FullName}"
+                    Header="Студент"
+                    IsReadOnly="True"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Teacher.FullName}"
+                    Header="Преподаватель"
+                    IsReadOnly="True"
+                    Width="150" />
+                <DataGridTextColumn
+                    Binding="{Binding Auditorium}"
+                    Header="Аудитория"
+                    IsReadOnly="True"
+                    Width="100" />
+                <DataGridTextColumn
+                    Binding="{Binding Grade}"
+                    Header="Оценка"
+                    Width="70" />
+
+                <!--  Кнопка удаления  -->
+                <DataGridTemplateColumn Header="Удалить" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteButton_Click" Content="🗑️" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
