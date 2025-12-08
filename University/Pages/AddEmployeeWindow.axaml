@@ -1,0 +1,62 @@
+<Window
+    Title="AddEmployeeWindow"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="University.Pages.AddEmployeeWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,*">
+        <TextBox
+            Grid.Row="0"
+            Watermark="ФИО"
+            x:Name="FullNameBox" />
+        <TextBox
+            Grid.Row="1"
+            Watermark="Должность"
+            x:Name="PositionBox" />
+        <TextBox
+            Grid.Row="2"
+            Watermark="Зарплата (например, 25000.00)"
+            x:Name="SalaryBox" />
+        <TextBox
+            Grid.Row="3"
+            Watermark="Логин"
+            x:Name="LoginBox" />
+        <TextBox
+            Grid.Row="4"
+            Watermark="Пароль"
+            x:Name="PasswordBox" />
+
+        <ComboBox
+            Grid.Row="5"
+            PlaceholderText="Кафедра"
+            x:Name="DepartmentCombo" />
+        <ComboBox
+            Grid.Row="6"
+            PlaceholderText="Роль"
+            x:Name="RoleCombo" />
+        <ComboBox
+            Grid.Row="7"
+            PlaceholderText="Шеф"
+            x:Name="ChiefCombo" />
+
+        <StackPanel
+            Grid.Row="8"
+            HorizontalAlignment="Center"
+            Margin="0,20,0,0"
+            Orientation="Horizontal"
+            Spacing="10">
+            <Button
+                Click="CreateButton_Click"
+                Content="Создать"
+                Width="100" />
+            <Button
+                Click="CancelButton_Click"
+                Content="Отмена"
+                Width="100" />
+        </StackPanel>
+    </Grid>
+</Window>
